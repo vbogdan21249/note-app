@@ -10,15 +10,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>List of Notes</title>
+    <title>Add New Note</title>
 </head>
 <body>
-<h1>List of Notes</h1>
-<ul>
-    <% for (Note note : (List<Note>) request.getAttribute("notes")) { %>
-    <li><strong><%= note.getTitle() %></strong>: <%= note.getContent() %></li>
-    <% } %>
-</ul>
-<p><a href="<%= request.getContextPath() %>/notes/add">Add a New Note</a></p>
+<h1>Add New Note</h1>
+<form action="<%= request.getContextPath() %>/notes/add" method="post">
+    <label>Title: <input type="text" name="title" required></label><br>
+    <label>Content: <textarea name="content" rows="4" required></textarea></label><br>
+    <input type="submit" value="Add Note">
+</form>
+<p><a href="<%= request.getContextPath() %>/notes">Back to Notes List</a></p>
 </body>
 </html>
